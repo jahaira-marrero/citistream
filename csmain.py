@@ -13,7 +13,7 @@ date_state_df = data.groupby(by=["date"]).sum()
 date_selected = streamlit.multiselect("Choose a date:", list(date_state_df))
 date_to_show = data.loc[date_selected]
 
-streamlit.dataframe(date_to_show)
+streamlit.dataframe(date_state_df)
 
 
   
