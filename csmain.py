@@ -6,7 +6,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import count, desc, col, max, struct, round, mean, min, expr, substring, to_date, sum
 from pyspark.sql import functions as F
 import matplotlib.pyplot as plts
-!pip install pyspark
+pip install pyspark
 
 
 #spark= SparkSession.builder.appName('Spark_app').getOrCreate()
