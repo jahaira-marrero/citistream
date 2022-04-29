@@ -10,7 +10,7 @@ data = pd.read_csv("https://knowi.com/api/data/ipE4xJhLBkn8H8jisFisAdHKvepFR5I4b
 for col in data.columns:
   streamlit.write(col)
   
-streamlit.line_chart(data.groupby(by=["date", "State"]).sum())
+streamlit.write(data.groupby(by=["date", "State"]).sum())
  
 
 streamlit.multiselect("Choose your filters:", list(data.index))
