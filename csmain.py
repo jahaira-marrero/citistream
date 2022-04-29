@@ -12,5 +12,5 @@ data_df = spark.read.format('csv').option('inferSchema', True).option('header', 
 #date_data = data\.groupby(pd.TimeGrouper('M'))\.agg({'combined':''.join})
 #streamlit.multiselect("Choose your filters:", list(data.index))
 #streamlit.dataframe(data)
-streamlit.write(data_df.show())
+streamlit.write(data_df)
 
