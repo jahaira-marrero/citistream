@@ -1,2 +1,2 @@
 import streamlit
-print('Hello data world')
+streamlit.header("Hello data")
