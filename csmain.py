@@ -13,7 +13,7 @@ for col in data.columns:
 date_state_df = data.groupby(by=["date", "State"]).sum()
 
   
-streamlit.write
+
  
 
 streamlit.multiselect("Choose your filters:", list(data.index))
