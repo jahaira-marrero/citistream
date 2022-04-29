@@ -1,6 +1,7 @@
 import streamlit
 import pandas as pd
 import requests
+import pyspark
 from pyspark.sql.functions import functions as F
 from pyspark.sql.functions import *
 from pyspark.sql.types import InterType, DateType
