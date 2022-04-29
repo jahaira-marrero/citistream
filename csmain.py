@@ -16,7 +16,7 @@ date_state_df = data.groupby(by=["date", "State"]).sum()
 
  
 
-streamlit.multiselect("Choose your filters:", list(data.index))
+streamlit.multiselect("Choose your filters:", list(data_state_df.index))
 
 streamlit.dataframe(data)
 
