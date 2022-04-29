@@ -9,6 +9,7 @@ data = data.set_index("date")
 
 date_state_df = data.groupby(by=["date", "State"]).sum()
 date_selected = streamlit.multiselect("Choose a date:", list(data.index))
+date_to_show = (date_state_df[date_selected].dropna(how='all'))
 date_to_show = date_state_df.loc[date_selected]
 
 #streamlit.line_chart(data(columns=["State", "date"]))
