@@ -12,7 +12,7 @@ data = pd.json_normalize(DATA_URL.json())
 
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
-st.DataFrame(data)
+st.write(data)
 
 
 
