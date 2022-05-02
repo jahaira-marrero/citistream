@@ -20,7 +20,7 @@ def load_data(nrows):
 data = load_data(100000)
 
 st.title("Motor Vehicle Collisions in New York City")
-st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC."
+st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 st.text(data)
 
            
