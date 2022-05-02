@@ -9,10 +9,11 @@ import requests
 
 DATA_URL= requests.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 data = pd.json_normalize(DATA_URL.json())
+d = pd.to_datetime(data['CRASH_DATE', 'CRASH_TIME'], unit='m')
 
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
-st.write(data)
+st.write(d)
 
 
 
