@@ -11,11 +11,12 @@ DATA_URL= requests.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 # DATA_RESPONSE = pd.json_normalize(DATA_URL.json())
 # st.dataframe(DATA_RESPONSE)
 
-def load_data(nrows):
-    data = pd.json_normalize(DATA_URL.json(), nrows =nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+def load_data():
+    data = pd.json_normalize(DATA_URL.json())
+    #data = pd.json_normalize(DATA_URL.json(), nrows =nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     return data
 
-data = load_data(100000)
+data = load_data
 
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
