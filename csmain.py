@@ -7,7 +7,8 @@ import pydeck as pdx
 import requests
 
 url_path = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
-data = pd.read_json(url_path, convert_dates=['crash_date', 'crash_time'], date_unit='s', lines=True, nrows=100000)
+data = pd.read_json(url_path, convert_dates=['crash_date', 'crash_time'])
+st.write(data)
 d = pd.json_normalize(data.json())
 
 st.title("Motor Vehicle Collisions in New York City")
