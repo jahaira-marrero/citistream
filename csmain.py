@@ -15,7 +15,7 @@ st.markdown("This application is a streamlit dashboard that can be used to analy
 def load_data():
     data = pd.json_normalize(DATA_URL.json())
     #data = pd.json_normalize(DATA_URL.json(), nrows =nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
-    return st.dataframe(data)
+    return st.write.dataframe(data)
 
 data = load_data
 
