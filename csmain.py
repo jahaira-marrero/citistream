@@ -7,7 +7,7 @@ import pydeck as pdx
 # from sodapy import Socrata
 import requests
 
-DATA_URL= request.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
+DATA_URL= requests.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 
 DATA_RESPONSE = pd.json_normalize(DATA_URL.json())
 
