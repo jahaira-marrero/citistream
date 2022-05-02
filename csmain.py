@@ -8,7 +8,7 @@ import requests
 
 url_path = requests.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 #data = pd.read_json(url_path)
-d = pd.json_normalize(data.json())
+d = pd.json_normalize(url_path.json())
 
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
