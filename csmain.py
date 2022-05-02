@@ -1,18 +1,16 @@
 
-import streamlit
+import streamlit as st
 import pandas as pd
-import requests
+import numpy as np
+import pydeck as pdx
+import plotly.express aspd
 
-streamlit.header("State Testing Historical Data Set")
-data = pd.read_csv("https://knowi.com/api/data/ipE4xJhLBkn8H8jisFisAdHKvepFR5I4bGzRySZ2aaXlJgie?entityName=States%20Testing%20Historical&exportFormat=csv")
-data = data.set_index("date")
+DATA_URL = ("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 
-date_state_df = data.groupby(by=["date", "State"]).sum()
-date_selected = streamlit.multiselect("Choose a date:", list(data.index))
+st. title("Motor Vehicle Collisions in New York City")
+st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC."
 
-date_to_show = date_state_df.loc[date_selected
-
-streamlit.dataframe(date_to_show.style.highlight_max(axis=0))
+           
 
 
   
