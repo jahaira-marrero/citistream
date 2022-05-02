@@ -9,7 +9,7 @@ import requests
 
 #DATA_URL= requests.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 url_path = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
-data = pd.read_json(url_path, convert_dates=['CRASH_DATES', 'CRASH_TIME'])
+data = pd.read_json(url_path, convert_dates=['crash_date', 'crash_time'])
 #d = pd.to_datetime(data['CRASH_DATE', 'CRASH_TIME'])
 
 st.title("Motor Vehicle Collisions in New York City")
