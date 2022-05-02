@@ -18,7 +18,7 @@ results_df = pd.DataFrame.from_records(results)
 
 st. title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC."
-st.write(results_df)
+st.dataframe(results_df)
 
            
 
