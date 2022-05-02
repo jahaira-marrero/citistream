@@ -7,6 +7,7 @@ import pydeck as pdx
 # from sodapy import Socrata
 import requests
 
+DATA_URL= ("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 
 def load_data(nrows):
     data = pd.json_normalize(DATA_URL.json(), nrows  = nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
