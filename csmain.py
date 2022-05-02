@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdx
-import plotly.express aspd
+import plotly.express as px
 
 DATA_URL = ("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
 
