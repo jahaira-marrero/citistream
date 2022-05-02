@@ -8,11 +8,11 @@ import pydeck as pdx
 import requests
 
 DATA_URL= requests.get("https://data.cityofnewyork.us/resource/h9gi-nx95.json")
-DATA_RESPONSE = pd.json_normalize(DATA_URL.json())
+# DATA_RESPONSE = pd.json_normalize(DATA_URL.json())
 # st.dataframe(DATA_RESPONSE)
 
 def load_data(nrows):
-    data = pd.DataFrame(DATA_RESPONSE, nrows =nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    data = pd.json_normalize(DATA_URL.json(), nrows =nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     return data
 
 data = load_data(100000)
