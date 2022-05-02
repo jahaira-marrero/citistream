@@ -9,7 +9,7 @@ import requests
 
 
 def load_data(nrows):
-    data = pd.json_normalized(DATA_URL.json(), nrows  = nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    data = pd.json_normalize(DATA_URL.json(), nrows  = nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     return data
 
 data = load_data(100000)
