@@ -9,6 +9,9 @@ import requests
 url= "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 data = pd.read_json(url, convert_dates=['crash_date', 'crash_time'])
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
+lowercase = lambda x: str(x).lower()
+data.rename(lowercase, axis = 'columns', inplace=True)
+date.rename(columns={'crash_data_crash_time': 'date/time'}, inplace=True)
 
 
 
