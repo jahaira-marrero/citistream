@@ -19,7 +19,7 @@ st.write(data)
 
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number if persons injured in vehicle collisions", 0,19)
-st.map(data.query("injured_persons >- @injured_people")["latitide", "longitude"].dropna(how="any"))
+st.map(data.query("number_of_persons_injured_ >- @injured_people")["latitide", "longitude"].dropna(how="any"))
 
 
 
