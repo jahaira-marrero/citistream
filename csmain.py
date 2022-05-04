@@ -24,7 +24,6 @@ st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "
 
 
 
-
            
 
 
