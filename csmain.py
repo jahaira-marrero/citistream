@@ -18,9 +18,9 @@ def load_data(nrows):
            data.dropna(subset = ['latitude', 'longitude'], inplace=True)
            return data
 
-data = load_data(100000)
+run_data = load_data(100000)
 
-st.write(data)
+st.write(run_data)
 
 
 
