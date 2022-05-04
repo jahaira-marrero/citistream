@@ -13,6 +13,7 @@ data['crash_date'] = pd.to_datetime(data['crash_date'])
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 st.write(data)
+st.write(data.head())
 
 
 
