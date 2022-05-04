@@ -8,7 +8,7 @@ import requests
 
 url= "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 data = pd.read_json(url, convert_dates=['crash_date', 'crash_time'])
-data.dropna(subset = ['latitude', 'longitude'], inplace=True
+data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
 
 
