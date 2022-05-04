@@ -7,7 +7,7 @@ import pydeck as pdx
 import requests
 
 url= "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
-data = pd.read_json(url, convert_dates=['crash_date'])
+data = pd.read_json(url, date_parser=['crash_date'])
 st.dataframe(data)
 #data['crash_date'] = pd.to_datetime(data['crash_date'], infer_datetime_format=True)
 
