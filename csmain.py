@@ -48,7 +48,7 @@ st.write(pdk.Deck(
                                  elevation_range=[1,1000],
                       ),
            ],
-)]
+))
 
 
 
