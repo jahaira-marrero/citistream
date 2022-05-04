@@ -23,7 +23,7 @@ st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "
 
 st.header("How many collisions occur during a given time of day?")
 hour = st.slider("Hour to look at", 0, 23)
-data = data[data]['crash_time'].dt.hour == hour]
+data = data[data['crash_time'].dt.hour == hour]
 
 st.markdown("Vehicle collisions between %i:00 and %i:00" %(hour, (hour +1) % 24))
 
