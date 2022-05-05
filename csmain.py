@@ -30,11 +30,9 @@ st.write(df)
 
 df.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
-st.write(df)
-
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number if persons injured in vehicle collisions", 0,10)
-st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
+st.map(df.query("number_of_persons_injured >= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
 
 st.header("How many collisions occur during a given time of day?")
 hour = st.slider("Hour to look at", 0, 23)
