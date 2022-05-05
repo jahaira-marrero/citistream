@@ -13,17 +13,20 @@ st.markdown("This application is a streamlit dashboard that can be used to analy
 st.cache(persist=True)
 
 url = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
-data = requests.get(url)
-jdf=pd.json_normalize(data.json())
-cdf = jdf.to_csv(index=False, nrows=100000, parse_dates=[['crash_date', 'crash_time']])
-#df = pd.read_csv(cdf, nrows=100000, parse_dates=[['crash_date', 'crash_time']])
-cdf.dropna(subset = ['latitude','longitude'], inplace=True)
+# data = requests.get(url)
+# jdf=pd.json_normalize(data.json())
+# cdf = jdf.to_csv(index=False, nrows=100000, parse_dates=[['crash_date', 'crash_time']])
+# #df = pd.read_csv(cdf, nrows=100000, parse_dates=[['crash_date', 'crash_time']])
+# cdf.dropna(subset = ['latitude','longitude'], inplace=True)
 
 # data = requests.get(url)
 # original_data = pd.json_normalize(data.json())
 # df= pd.json_normalize(data.json())
 # df.crash_date = df.crash_date.str.split('T').str[0]
-st.text(cdf)
+# st.text(cdf)
+
+data = read_json(url)
+st.write(data)
 
 # df.dropna(subset = ['latitude', 'longitude'], inplace=True)
 # #df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
