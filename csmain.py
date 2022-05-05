@@ -17,7 +17,7 @@ data.crash_date = data.crash_date.str.split('T').str[0]
 #data.crash_time = data.crash_time.dt.time
 
 data.crash_time = data.crash_time.astype(str)
-#data.crash_time = data.crash_time.str.split('T').str[1]
+data.crash_time = data.crash_time.str.split(' ').str[1]
 
 
 
