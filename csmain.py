@@ -7,7 +7,7 @@ import pydeck as pdk
 import requests
 
 url= "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
-original_data = pd.json_normalize(data.json())
+original_data = pd.json_normalize(df.json())
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 
