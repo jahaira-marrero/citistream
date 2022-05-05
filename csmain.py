@@ -21,7 +21,7 @@ cdf = df.to_csv(index=False)
 # original_data = pd.json_normalize(data.json())
 # df= pd.json_normalize(data.json())
 # df.crash_date = df.crash_date.str.split('T').str[0]
-st.write(cdf)
+st.dataframe(cdf)
 
 # df.dropna(subset = ['latitude', 'longitude'], inplace=True)
 # #df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
