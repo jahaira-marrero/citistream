@@ -18,11 +18,11 @@ df= pd.json_normalize(data.json())
 df.crash_date = df.crash_date.str.split('T').str[0]
 st.write(df)
 
-df.dropna(subset = ['latitude', 'longitude'], inplace=True)
-#df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
-st.header("Where are the most people injured in NYC?")
-injured_people = st.slider("Number of persons injured in vehicle collisions", 0,10)
-st.map(df.query("number_of_persons_injured >= @injured_people")["latitude", "longitude"].dropna(how="any"))
+# df.dropna(subset = ['latitude', 'longitude'], inplace=True)
+# #df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
+# st.header("Where are the most people injured in NYC?")
+# injured_people = st.slider("Number of persons injured in vehicle collisions", 0,10)
+# st.map(df.query("number_of_persons_injured >= @injured_people")["latitude", "longitude"].dropna(how="any"))
 
 # st.header("How many collisions occur during a given time of day?")
 # hour = st.slider("Hour to look at", 0, 23)
