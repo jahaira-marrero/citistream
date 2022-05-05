@@ -17,8 +17,6 @@ data.crash_date = data.crash_date.str.split('T').str[0]
 
 data.crash_time = data.crash_time.apply(lambda x: x.strftime('%H:%M'))
 
-st.write(data.dtypes)
-
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
 st.write(data)
