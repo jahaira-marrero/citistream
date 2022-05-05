@@ -12,7 +12,10 @@ st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 
 st.cache(persist=True)
-data = pd.read_json(url)
+#data = pd.read_json(url, keep)
+data = requests.get(url)
+df= pd.json_normalize(data.json())
+
 original_data = pd.read_json(url)
 
 #data.crash_date = data.crash_date.str.split('T').str[0]
