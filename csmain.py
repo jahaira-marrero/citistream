@@ -31,7 +31,7 @@ st.header("How many collisions occur during a given time of day?")
 hour = st.slider("Hour to look at", 0, 23)
 data = data[data['crash_time'].dt.hour == hour]
 
-st.markdown("Vehicle collisions between %i:00 and %i:00" %(hour, (hour +1) % 24))
+st.markdown("Vehicle collisions between %i:00:00 and %i:00:00" %(hour, (hour +1) % 24))
 
 midpoint = (np.average(data['latitude']), np.average(data['longitude']))
 st.write(pdk.Deck(
