@@ -16,6 +16,7 @@ data = pd.read_json(url)
 data.crash_date = data.crash_date.str.split('T').str[0]
 
 data.crash_time = data.crash_time.apply(lambda x: x.strftime('%H:%M'))
+data.crash_time = data.crash_time.dt.time
 
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
@@ -28,13 +29,12 @@ st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "
 st.header("How many collisions occur during a given time of day?")
 hour = st.slider("Hour to look at", 0, 23)
 #data = data[data['crash_time'].dt.hour == hour]
-#data = data[data.crash_time == hour]
-dataT = data.crash_time == hour
+
 
 
 st.markdown("Vehicle collisions between %i:00 and %i:00" %(hour, (hour +1) % 24))
 
-midpoint = (np.average(dataT['latitude']), np.average(dataT['longitude']))
+midpoint = (np.average(dataT\['latitude']), np.average(data['longitude']))
 st.write(pdk.Deck(
            map_style="mapbox://styles/mapbox/light-v9",
            initial_view_state={
