@@ -6,18 +6,22 @@ import pydeck as pdk
 #import plotly.express as px
 import requests
 
-url= "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 
-#st.cache(persist=True)
+st.cache(persist=True)
 
+url = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 data = requests.get(url)
-original_data = pd.json_normalize(data.json())
-df= pd.json_normalize(data.json())
-df.crash_date = df.crash_date.str.split('T').str[0]
-st.write(df)
+df=pd.json_normalize(data.json())
+cdf = df.to_csv(index=False)
+
+# data = requests.get(url)
+# original_data = pd.json_normalize(data.json())
+# df= pd.json_normalize(data.json())
+# df.crash_date = df.crash_date.str.split('T').str[0]
+st.write(cdf)
 
 # df.dropna(subset = ['latitude', 'longitude'], inplace=True)
 # #df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
@@ -57,12 +61,11 @@ st.write(df)
 #            ],
 # ))
 
-st.header("Top 5 Dangerous Collision Streets by Type")
-select = st.selectbox('Affected Type:', ['Pedestrians', 'Cyclists', 'Motorists'])
-original_data.number_of_persons_injured = original_data.number_of_persons_injured.astype(int)
+# st.header("Top 5 Dangerous Collision Streets by Type")
+# select = st.selectbox('Affected Type:', ['Pedestrians', 'Cyclists', 'Motorists'])
 
-if select == 'Pedestrians':
-           st.write(original_data.query("number_of_pedestrians_injured >= 1")[["on_street_name","number_of_pedestrians_injured"]].sort_values(by=['number_of_pedestrians_injured'], ascending=False).dropna(how='any')[:5])
+# if select == 'Pedestrians':
+#            st.write(original_data.query("number_of_pedestrians_injured >= 1")[["on_street_name","number_of_pedestrians_injured"]].sort_values(by=['number_of_pedestrians_injured'], ascending=False).dropna(how='any')[:5])
 
 
 
