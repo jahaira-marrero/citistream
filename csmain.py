@@ -10,9 +10,10 @@ import requests
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 
+url = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 st.cache(persist=True)
 
-url = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
+
 # data = requests.get(url)
 # jdf=pd.json_normalize(data.json())
 # cdf = jdf.to_csv(index=False, nrows=100000, parse_dates=[['crash_date', 'crash_time']])
@@ -25,7 +26,8 @@ url = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 # df.crash_date = df.crash_date.str.split('T').str[0]
 # st.text(cdf)
 
-data = read_json(url)
+data = pd.read_json(url)
+data.dropna(subset = ['latitude', 'longitude'])
 st.write(data)
 
 # df.dropna(subset = ['latitude', 'longitude'], inplace=True)
