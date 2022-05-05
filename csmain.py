@@ -15,7 +15,7 @@ st.cache(persist=True)
 #data = pd.read_json(url, keep)
 data = requests.get(url)
 df= pd.json_normalize(data.json())
-data.crash_date = data.crash_date.str.split('T').str[0]
+df.crash_date = df.crash_date.str.split('T').str[0]
 st.write(df)
 
 original_data = pd.read_json(url)
