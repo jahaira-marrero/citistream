@@ -12,10 +12,11 @@ st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 
 st.cache(persist=True)
-data = pd.read_json(url, keep_default_dates=True)
+data = pd.read_json(url)
 original_data = pd.read_json(url)
 
 data.crash_date = data.crash_date.str.split('T').str[0]
+data.crash_time = data.crash_time.str.split('T').str[1]
 
 #data.crash_time = data.crash_time.apply(lambda x: x.strftime('%H:%M'))
 # data.crash_time = pd.to_datetime(data.crash_time, format='%H:%M')
