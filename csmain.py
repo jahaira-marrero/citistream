@@ -16,8 +16,8 @@ data = pd.read_json(url)
 data.crash_date = data.crash_date.str.split('T').str[0]
 
 data.crash_time = data.crash_time.apply(lambda x: x.strftime('%H:%M'))
-data.crash_time = pd.to_datetime(data.crash_time, format='%H:%M')
-data.crash_time = data.crash_time.dt.time
+# data.crash_time = pd.to_datetime(data.crash_time, format='%H:%M')
+# data.crash_time = data.crash_time.dt.time
 
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
