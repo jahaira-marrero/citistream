@@ -15,6 +15,7 @@ st.cache(persist=True)
 data = pd.read_json(url)
 data.crash_date = data.crash_date.str.split('T').str[0]
 data.crash_time = data.crash_time.dt.time
+st.write(data.head(n=10))
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
 st.write(data)
