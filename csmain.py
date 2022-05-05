@@ -15,6 +15,7 @@ st.cache(persist=True)
 #data = pd.read_json(url, keep)
 data = requests.get(url)
 df= pd.json_normalize(data.json())
+st.write(pd)
 
 original_data = pd.read_json(url)
 
