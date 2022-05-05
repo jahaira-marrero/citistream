@@ -18,7 +18,7 @@ df= pd.json_normalize(data.json())
 df.crash_date = df.crash_date.str.split('T').str[0]
 st.write(df)
 
-original_data = pd.read_json(url)
+#original_data = pd.read_json(url)
 
 
 #data.crash_time = data.crash_time.dt.strftime('%H:%M')
@@ -28,9 +28,9 @@ original_data = pd.read_json(url)
 # data.crash_time = pd.to_datetime(data.crash_time, format='%H:%M')
 #data.crash_time = data.crash_time.dt.time
 
-data.dropna(subset = ['latitude', 'longitude'], inplace=True)
+df.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
-st.write(data)
+st.write(df)
 
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number if persons injured in vehicle collisions", 0,10)
