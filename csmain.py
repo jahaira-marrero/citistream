@@ -7,13 +7,14 @@ import pydeck as pdk
 import requests
 
 url= "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
-original_data = pd.json_normalize(df.json())
+
 st.title("Motor Vehicle Collisions in New York City")
 st.markdown("This application is a streamlit dashboard that can be used to analyze motorvehicle collisions in NYC.")
 
 st.cache(persist=True)
 #data = pd.read_json(url, keep)
 data = requests.get(url)
+original_data = pd.json_normalize(data.json())
 df= pd.json_normalize(data.json())
 df.crash_date = df.crash_date.str.split('T').str[0]
 st.write(df)
