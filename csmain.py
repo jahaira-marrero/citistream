@@ -56,7 +56,7 @@ st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "
 #                                  elevation_range=[1,1000],
 #                       ),
 #            ],
-))
+#))
 
 st.header("Top 5 Dangerous Collision Streets by Type")
 select = st.selectbox("Affected Type: ['Pedestrians', 'Cyclists', 'Motorists'])
