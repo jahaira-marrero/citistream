@@ -17,7 +17,8 @@ data.crash_date = data.crash_date.str.split('T').str[0]
 #data.crash_time = data.crash_time.dt.time
 
 data.crash_time = data.crash_time.astype(str)
-data.crash_time = data.crash_time.str.split(' ').str[1]
+#data.crash_time = data.crash_time.str.split(' ').str[1]
+data.crash_time = data.crash_time.dt.hour
 
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
@@ -29,7 +30,7 @@ st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "
 
 st.header("How many collisions occur during a given time of day?")
 hour = st.slider("Hour to look at", 0, 23)
-data = data[data.crash_time.dt.hour == hour]
+data = data[data['crash_time'].dt.hour == hour]
 
 st.markdown("Vehicle collisions between %i:00:00 and %i:00:00" %(hour, (hour +1) % 24))
 
