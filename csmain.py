@@ -14,7 +14,7 @@ st.markdown("This application is a streamlit dashboard that can be used to analy
 st.cache(persist=True)
 data = pd.read_json(url)
 data.crash_date = data.crash_date.str.split('T').str[0]
-data.crash_time = data.crash_time.dt.hour
+data.crash_time = data.crash_time.dt.time
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 
 st.write(data)
