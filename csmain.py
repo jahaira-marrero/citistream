@@ -18,26 +18,16 @@ df= pd.json_normalize(data.json())
 df.crash_date = df.crash_date.str.split('T').str[0]
 st.write(df)
 
-#original_data = pd.read_json(url)
-
-
-#data.crash_time = data.crash_time.dt.strftime('%H:%M')
-#data.crash_time = data.crash_time.str.split('T').str[1]
-
-#data.crash_time = data.crash_time.apply(lambda x: x.strftime('%H:%M'))
-# data.crash_time = pd.to_datetime(data.crash_time, format='%H:%M')
-#data.crash_time = data.crash_time.dt.time
-
 df.dropna(subset = ['latitude', 'longitude'], inplace=True)
-
+df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
 st.header("Where are the most people injured in NYC?")
-injured_people = st.slider("Number if persons injured in vehicle collisions", 0,10)
+injured_people = st.slider("Number of persons injured in vehicle collisions", 0,10)
 st.map(df.query("number_of_persons_injured >= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
 
-st.header("How many collisions occur during a given time of day?")
-hour = st.slider("Hour to look at", 0, 23)
-#data.crash_time = data.crash_time.dt.hour
-data = data[data['crash_time'].dt.hour == hour]
+# st.header("How many collisions occur during a given time of day?")
+# hour = st.slider("Hour to look at", 0, 23)
+# #data.crash_time = data.crash_time.dt.hour
+# data = data[data['crash_time'].dt.hour == hour]
 
 
 
