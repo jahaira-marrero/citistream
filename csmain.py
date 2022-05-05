@@ -59,6 +59,7 @@ st.write(df)
 
 st.header("Top 5 Dangerous Collision Streets by Type")
 select = st.selectbox('Affected Type:', ['Pedestrians', 'Cyclists', 'Motorists'])
+original_data.number_of_persons_injured = original_data.number_of_persons_injured.astype(int)
 
 if select == 'Pedestrians':
            st.write(original_data.query("number_of_pedestrians_injured >= 1")[["on_street_name","number_of_pedestrians_injured"]].sort_values(by=['number_of_pedestrians_injured'], ascending=False).dropna(how='any')[:5])
