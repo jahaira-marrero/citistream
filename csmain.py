@@ -64,7 +64,7 @@ st.header("Top 5 Dangerous Collision Streets by Type")
 select = st.selectbox('Affected Type:', ['Pedestrians', 'Cyclists', 'Motorists'])
 
 if select == 'Pedestrians':
-           st.writes(original_data.query("number_of_pedestrians_injured >= 1")[["cross_street_name", "off_street_name", "number_of_pedestrians_injured"]].sort_values(by=['number_of_pedestrians_injured'], ascending=false).dropna(how='any')[:5])
+           st.write(original_data.query("number_of_pedestrians_injured >= 1")[["cross_street_name", "off_street_name", "number_of_pedestrians_injured"]].sort_values(by=['number_of_pedestrians_injured'], ascending=false).dropna(how='any')[:5])
 
 
 
