@@ -13,6 +13,8 @@ st.markdown("This application is a streamlit dashboard that can be used to analy
 
 st.cache(persist=True)
 data = pd.read_json(url)
+original_data = pd.read_json(url)
+
 data.crash_date = data.crash_date.str.split('T').str[0]
 
 data.crash_time = data.crash_time.apply(lambda x: x.strftime('%H:%M'))
@@ -60,6 +62,9 @@ st.map(data.query("number_of_persons_injured >= @injured_people")[["latitude", "
 
 st.header("Top 5 Dangerous Collision Streets by Type")
 select = st.selectbox('Affected Type:', ['Pedestrians', 'Cyclists', 'Motorists'])
+
+if select == 'Pedestrians':
+           st.writes(original_data.query("number_of_pedestrians_injured >= 1")[["cross_street_name", "off_street_name", "number_of_pedestrians_injured"]].sort_values(by=['number_of_pedestrians_injured'], ascending=false).dropna(how='any')[:5])
 
 
 
