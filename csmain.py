@@ -16,7 +16,7 @@ url = "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
 data = requests.get(url)
 jdf=pd.json_normalize(data.json())
 cdf = jdf.to_csv(index=False)
-df = pd.read_csv(cdf, nrows=100000, parse_dates=[['crash_date', 'crash_time']])
+df = pd.read_csv(cdf, nrows=100000, parse_dates=['crash_date', 'crash_time'])
 df.dropna(subset = ['latitude','longitude'], inplace=True)
 
 # data = requests.get(url)
