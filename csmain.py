@@ -19,7 +19,7 @@ data.crash_time = data.crash_time.dt.hour
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
 st.dataframe(data)
 
-# #df.number_of_persons_injured = df.number_of_persons_injured.astype(int)
+data.number_of_persons_injured = data.number_of_persons_injured.astype(int)
 st.header("Where are the most people injured in NYC?")
 injured_people = st.slider("Number of persons injured in vehicle collisions", 0,10)
 st.map(data.query("number_of_persons_injured >= @injured_people")["latitude", "longitude"].dropna(how="any"))
