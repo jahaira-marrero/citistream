@@ -34,7 +34,7 @@ hour = st.slider("Hour to look at", 0, 23)
 
 st.markdown("Vehicle collisions between %i:00 and %i:00" %(hour, (hour +1) % 24))
 
-midpoint = (np.average(dataT\['latitude']), np.average(data['longitude']))
+midpoint = (np.average(data['latitude']), np.average(data['longitude']))
 st.write(pdk.Deck(
            map_style="mapbox://styles/mapbox/light-v9",
            initial_view_state={
