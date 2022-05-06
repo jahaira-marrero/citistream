@@ -18,7 +18,9 @@ original_data = pd.read_json(url)
 data.crash_date= data.crash_date.str.split('T').str[0]
 data.crash_time = data.crash_time.dt.hour
 data.dropna(subset = ['latitude', 'longitude'], inplace=True)
-st.dataframe(data)
+if st.checkbox("Show Raw Data", False):
+           st.subheader('Raw Data')
+           st.write(data)
 
 data.number_of_persons_injured = data.number_of_persons_injured.astype(int)
 st.header("Where are the most people injured in NYC?")
