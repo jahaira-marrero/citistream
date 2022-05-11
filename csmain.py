@@ -16,11 +16,11 @@ def get_sblist():
            return my_cur.fetchall()
                       
 
-if streamlit.button('Get Trips'):
-    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+if st.button('Get Trips'):
+    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
     my_data_rows = get_sblist()
     my_cnx.close()
-    streamlit.dataframe(my_data_rows)
+    st.dataframe(my_data_rows)
            
 
 
