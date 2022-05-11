@@ -11,7 +11,7 @@ streamlit.title("Citibike Trips")
 df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
 
 if streamlit.button('See Raw Data'):
-        streamlit.write(df
+        streamlit.write(df)
 
            
 
