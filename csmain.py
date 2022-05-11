@@ -10,6 +10,7 @@ import requests
 streamlit.title("Citibike Trips")
 
 
+
 # def get_sblist():
 #    with my_cnx.cursor() as my_cur:
 #            my_cur.execute("select * from trips")
