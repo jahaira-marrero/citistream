@@ -8,8 +8,8 @@ import snowflake.connector
 import requests
 
 streamlit.title("Citibike Trips")
-df = pd.read_csv('https://github.com/jahaira-marrero/citistream/blob/main/cbtrips.csv')
-streamlit.dataframe(df)
+df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
+streamlit.write(df)
 
 # def get_sblist():
 #    with my_cnx.cursor() as my_cur:
