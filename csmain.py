@@ -11,8 +11,8 @@ st.title("Starbucks Locations")
 
 def get_sblist():
            with my_cnx.cursor() as my_cur:
-             my_cur.execute("select * from core_poi")
-             return my_cur.fetall()
+             my_cur.execute("select 'location_name as' 'name', 'latitude', 'longitude; from core_poi")
+             return my_cur.fetchone()
                       
 
 if streamlit.button("Get Starbucks Locations"):
