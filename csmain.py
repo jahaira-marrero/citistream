@@ -9,7 +9,7 @@ import requests
 
 streamlit.title("Citibike Trips")
 df = pd.read_csv('https://github.com/jahaira-marrero/citistream/blob/main/cbtrips.csv')
-streamlit.write(df.head())
+streamlit.dataframe(df)
 
 # def get_sblist():
 #    with my_cnx.cursor() as my_cur:
