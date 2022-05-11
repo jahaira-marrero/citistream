@@ -9,6 +9,7 @@ import requests
 
 streamlit.title("Citibike Trips")
 streamlit.DataFrame('cbtrips.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Casestudy/titanic_train.csv')
 
 # def get_sblist():
 #    with my_cnx.cursor() as my_cur:
