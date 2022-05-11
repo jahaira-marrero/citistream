@@ -9,18 +9,10 @@ import requests
 
 streamlit.title("Citibike Trips")
 df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
-streamlit.write(df)
 
-# def get_sblist():
-#    with my_cnx.cursor() as my_cur:
-#       my_cur.execute("select * from trips limit 100")
-#       return my_cur.fetchall()
-        
-# if streamlit.button('Get Trips'):
-#     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-#     my_data_rows = get_sblist()
-#     my_cnx.close()
-#     streamlit.dataframe(my_data_rows)
+if streamlit.button('See Raw Data'):
+        streamlit.write(df
+
            
 
 
