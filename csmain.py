@@ -11,7 +11,7 @@ st.title("Starbucks Locations")
 
 # def get_sblist():
 #            with my_cnx.cursor() as my_cur:
-#              my_cur.execute("select 'location_name as' 'name', 'latitude', 'longitude; from core_poi")
+#              my_cur.execute("select * from trips limit 100")
 #              return my_cur.fetchall()
                       
 
