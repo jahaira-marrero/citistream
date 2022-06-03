@@ -14,18 +14,18 @@ if streamlit.button('See Raw Data'):
         streamlit.write(df)
 
           
-# st.cache(persist=True)
-# def load_data(nrows):
-#     data = pd.read_csv(url, nrows = nrows, parse_dates=[['CRASH DATE', 'CRASH TIME']])
-#     data.dropna(subset = ["LATITUDE", "LONGITUDE"], inplace=True)
-#     lowercase = lambda x: str(x).lower()
-#     data.rename(lowercase, axis = 'columns', inplace=True)
-#     data.rename(columns={'crash date_crash time': 'date/time'}, inplace=True)
-#     return data
+st.cache(persist=True)
+def load_data(nrows):
+    data = pd.read_csv(url, nrows = nrows, parse_dates=[['CRASH DATE', 'CRASH TIME']])
+    data.dropna(subset = ["LATITUDE", "LONGITUDE"], inplace=True)
+    lowercase = lambda x: str(x).lower()
+    data.rename(lowercase, axis = 'columns', inplace=True)
+    data.rename(columns={'crash date_crash time': 'date/time'}, inplace=True)
+    return data
 
-# data = load_data(100000)
-# original_data = data
-# st.write(data)
+data = load_data(100000)
+original_data = data
+st.write(data)
 
 
 # st.header("Where are the most people injured in NYC?")
