@@ -12,7 +12,7 @@ streamlit.title("Citibike Trips")
 def get_citi_list():
     with my_cnx.cursor() as my_cur:
         my_cur.execute("select * from trips limit 10")
-        return my_cur.fetchone()
+        return my_cur.fetchall()
 
 if streamlit.button('Get List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
