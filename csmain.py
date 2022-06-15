@@ -28,13 +28,13 @@ original_data = data
 st.write(data)
 
 
-# st.header("Where are the most people injured in NYC?")
-# injured_people = st.slider("Number of persons injured in vehicle collisions", 0, 14)
-# st.map(data.query("number of injured persons>= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
+st.header("Where are the most people injured in NYC?")
+injured_people = st.slider("Number of persons injured in vehicle collisions", 0, 14)
+st.map(data.query("number of injured persons>= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
 
-# st.header("How many collisions occur during a given time of day?")
-# hour = st.slider("Hour to look at", 0, 23)
-# data = data[data['date/time'].dt.hour == hour]
+st.header("How many collisions occur during a given time of day?")
+hour = st.slider("Hour to look at", 0, 23)
+data = data[data['date/time'].dt.hour == hour]
 
 
 # st.markdown("Vehicle collisions between %i:00 and %i:00" %(hour, (hour +1)))
