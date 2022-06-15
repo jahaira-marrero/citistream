@@ -1,5 +1,5 @@
 import datetime
-import streamlit as st
+import streamlit
 import pandas as pd
 import numpy as np
 import pydeck as pdk
@@ -7,7 +7,7 @@ import snowflake.connector
 #import plotly.express as px
 import requests
 
-st.title("Citibike Trips")
+streamlit.title("Citibike Trips")
 
 def get_citi_list():
     with my_cnx.cursor() as my_cur:
@@ -15,10 +15,10 @@ def get_citi_list():
         return my_cur.fetchone()
 
 if st.button('Get List'):
-    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_citi_list()
     my_cnx.close()
-    st.DataFrame(my_data_rows)
+    streamlit.DataFrame(my_data_rows)
 
 
 
