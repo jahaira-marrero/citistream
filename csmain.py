@@ -21,7 +21,7 @@ if streamlit.button('Get List'):
     df = pd(my_data_rows)
     streamlit.dataframe(my_data_rows)
 
-streamlit.write(df.head())
+streamlit.write(df)
 
 # df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
 
