@@ -14,7 +14,7 @@ def get_citi_list():
         my_cur.execute("select * from trips limit 10")
         return my_cur.fetchone()
 
-if st.button('Get List'):
+if streamlit.button('Get List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_citi_list()
     my_cnx.close()
