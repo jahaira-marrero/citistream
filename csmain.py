@@ -7,7 +7,7 @@ import snowflake.connector
 #import plotly.express as px
 import requests
 
-streamlit.title("Citibike Trips")
+st.title("Citibike Trips")
 
 def get_citi_list():
     with my_cnx.cursor() as my_cur:
