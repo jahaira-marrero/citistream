@@ -11,17 +11,16 @@ streamlit.title("Citibike Trips")
 
 def get_citi_list():
     with my_cnx.cursor() as my_cur:
-        my_cur.execute("select * from trips limit 20")
+        my_cur.execute("select * from trips where starttime='2018-06-21 08:06:24.076'")
         return my_cur.fetchall()
 
 if streamlit.button('Get List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_citi_list()
     my_cnx.close()
-    df = pd(my_data_rows)
     streamlit.dataframe(my_data_rows)
 
-streamlit.write(my_data_rows)
+
 
 # df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
 
