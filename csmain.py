@@ -11,7 +11,7 @@ streamlit.title("Citibike Trips")
 
 def get_citi_list():
     with my_cnx.cursor() as my_cur:
-        my_cur.execute("select * from dept")
+        my_cur.execute("select * from trips limit 20")
         return my_cur.fetchall()
 
 if streamlit.button('Get List'):
