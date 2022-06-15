@@ -12,7 +12,7 @@ st.title("Citibike Trips")
 def get_citi_list():
     with my_cnx.cursor() as my_cur:
         my_cur.execute("select * from trips")
-        return my_cur.fetchall()
+        return my_cur.fetchone()
 
 if st.button('Get List'):
     my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
