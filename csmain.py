@@ -1,5 +1,5 @@
 import datetime
-import streamlit
+import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
@@ -8,33 +8,47 @@ import snowflake.connector
 import requests
 
 streamlit.title("Citibike Trips")
-df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
 
-if streamlit.button('See Raw Data'):
-        streamlit.write(df)
+def get_citi_list():
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("select * from trips")
+        return my_cur.fetchone()
+
+if st.button('Get List'):
+    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+    my_data_rows = get_citi_list()
+    my_cnx.close()
+    st.DataFrame(my_data_rows)
+
+
+
+# df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
+
+# if streamlit.button('See Raw Data'):
+#         streamlit.write(df)
 
           
-st.cache(persist=True)
-def load_data(nrows):
-    data = pd.read_csv(url, nrows = nrows, parse_dates=[['CRASH DATE', 'CRASH TIME']])
-    data.dropna(subset = ["LATITUDE", "LONGITUDE"], inplace=True)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis = 'columns', inplace=True)
-    data.rename(columns={'crash date_crash time': 'date/time'}, inplace=True)
-    return data
+# st.cache(persist=True)
+# def load_data(nrows):
+#     data = pd.read_csv(url, nrows = nrows, parse_dates=[['CRASH DATE', 'CRASH TIME']])
+#     data.dropna(subset = ["LATITUDE", "LONGITUDE"], inplace=True)
+#     lowercase = lambda x: str(x).lower()
+#     data.rename(lowercase, axis = 'columns', inplace=True)
+#     data.rename(columns={'crash date_crash time': 'date/time'}, inplace=True)
+#     return data
 
-data = load_data(100000)
-original_data = data
-st.write(data)
+# data = load_data(100000)
+# original_data = data
+# st.write(data)
 
 
-st.header("Where are the most people injured in NYC?")
-injured_people = st.slider("Number of persons injured in vehicle collisions", 0, 14)
-st.map(data.query("number of injured persons>= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
+# st.header("Where are the most people injured in NYC?")
+# injured_people = st.slider("Number of persons injured in vehicle collisions", 0, 14)
+# st.map(data.query("number of injured persons>= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
 
-st.header("How many collisions occur during a given time of day?")
-hour = st.slider("Hour to look at", 0, 23)
-data = data[data['date/time'].dt.hour == hour]
+# st.header("How many collisions occur during a given time of day?")
+# hour = st.slider("Hour to look at", 0, 23)
+# data = data[data['date/time'].dt.hour == hour]
 
 
 # st.markdown("Vehicle collisions between %i:00 and %i:00" %(hour, (hour +1)))
