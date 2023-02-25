@@ -1,18 +1,24 @@
+# import datetime
+# import streamlit
+# import pandas as pd
+# import numpy as np
+# import pydeck as pdk
+# import snowflake.connector
+# #import plotly.express as px
+# import requests
+
 import datetime
-import streamlit
+import streamlit as st
 import pandas as pd
 import numpy as np
-import pydeck as pdk
-import snowflake.connector
-#import plotly.express as px
-import requests
+#import pydeck as pdk
 
 
+df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
 
-# df = pd.read_csv('https://raw.githubusercontent.com/jahaira-marrero/citistream/main/cbtrips.csv')
 
-# if streamlit.button('See Raw Data'):
-#         streamlit.write(df)
+if st.button('See Raw Data'):
+    st.write(df.head())
 
           
 # st.cache(persist=True)
